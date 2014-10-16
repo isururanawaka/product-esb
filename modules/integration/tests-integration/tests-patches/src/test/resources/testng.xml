@@ -38,7 +38,11 @@
             <package name="org.wso2.carbon.esb.registry.caching"/>
         </packages>
     </test>
-
+    <test name="Json Stream Formatter Test" preserve-order="true" verbose="2">
+        <classes>
+            <class name="org.wso2.carbon.esb.json.test.ESBJAVA_3380TestCase"/>
+        </classes>
+    </test>
 </suite>
 
 
