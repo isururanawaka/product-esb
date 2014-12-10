@@ -47,13 +47,14 @@ public class ESBJAVA_3380TestCase extends ESBIntegrationTest {
         serverConfigurationManager.applyConfiguration(new File(getESBResourceLocation() + File.separator
                 + "json" + File.separator + "synapse.properties"));
         super.init();
-        loadESBConfigurationFromClasspath("artifacts/ESB/json/jsonproxy.xml");
+        loadESBConfigurationFromClasspath(
+                "artifacts" + File.separator + "ESB" + File.separator + "json" + File.separator + "jsonproxy.xml");
 
 
     }
 
     @SetEnvironment(executionEnvironments = {ExecutionEnvironment.ALL})
-    @Test(groups = "wso2.esb", description = "disabling auto primitive option in synapse properties " ,enabled=false)
+    @Test(groups = "wso2.esb", description = "disabling auto primitive option in synapse properties ", enabled = false)
     public void testDisablingAutoConversionToScientificNotationInJsonStreamFormatter() throws Exception {
         String payload =
                 "      <Person>" +
