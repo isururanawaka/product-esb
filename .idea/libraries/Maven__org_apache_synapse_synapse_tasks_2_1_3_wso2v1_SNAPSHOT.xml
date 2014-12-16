@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.synapse:synapse-tasks:2.1.3-wso2v1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/synapse/synapse-tasks/2.1.3-wso2v1-SNAPSHOT/synapse-tasks-2.1.3-wso2v1-20141212.200437-1051.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/synapse/synapse-tasks/2.1.3-wso2v1-SNAPSHOT/synapse-tasks-2.1.3-wso2v1-20141212.200437-1051-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/synapse/synapse-tasks/2.1.3-wso2v1-SNAPSHOT/synapse-tasks-2.1.3-wso2v1-20141212.200437-1051-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

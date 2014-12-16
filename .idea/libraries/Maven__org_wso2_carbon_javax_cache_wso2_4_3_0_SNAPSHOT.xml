@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2.carbon:javax.cache.wso2:4.3.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/javax.cache.wso2/4.3.0-SNAPSHOT/javax.cache.wso2-4.3.0-20141213.025129-854.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/javax.cache.wso2/4.3.0-SNAPSHOT/javax.cache.wso2-4.3.0-20141213.025129-854-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/javax.cache.wso2/4.3.0-SNAPSHOT/javax.cache.wso2-4.3.0-20141213.025129-854-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

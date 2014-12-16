@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2.carbon:org.wso2.carbon.um.ws.api.stub:4.3.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.um.ws.api.stub/4.3.0-SNAPSHOT/org.wso2.carbon.um.ws.api.stub-4.3.0-20141212.194744-1010.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.um.ws.api.stub/4.3.0-SNAPSHOT/org.wso2.carbon.um.ws.api.stub-4.3.0-20141212.194744-1010-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.um.ws.api.stub/4.3.0-SNAPSHOT/org.wso2.carbon.um.ws.api.stub-4.3.0-20141212.194744-1010-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -63,10 +63,15 @@
             <package name="org.wso2.carbon.esb.passthru.transport.test"/>
         </packages>
     </test>
-<!--    <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">
+    <test name="Secure Backend Validation" preserve-order="true" verbose="2">
+        <packages>
+            <package name="org.wso2.carbon.esb.certificationvalidate.transport.test.*"/>
+        </packages>
+    </test>
+    <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.http.inbound.transport.test"/>
         </packages>
-    </test> -->
+    </test>
 </suite>
 

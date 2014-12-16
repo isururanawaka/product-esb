@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.ws.security:wss4j:1.5.11-wso2v8-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/security/wss4j/1.5.11-wso2v8-SNAPSHOT/wss4j-1.5.11-wso2v8-20141212.213806-25.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/security/wss4j/1.5.11-wso2v8-SNAPSHOT/wss4j-1.5.11-wso2v8-20141212.213806-25-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/ws/security/wss4j/1.5.11-wso2v8-SNAPSHOT/wss4j-1.5.11-wso2v8-20141212.213806-25-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
