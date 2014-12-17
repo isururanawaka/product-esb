@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2005-2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
@@ -33,9 +32,7 @@ import org.wso2.carbon.automation.extensions.servers.httpserver.SimpleHttpClient
 import org.wso2.carbon.integration.common.utils.mgt.ServerConfigurationManager;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 
-
 import java.io.File;
-
 
 public class ESBJAVA_3380TestCase extends ESBIntegrationTest {
     private ServerConfigurationManager serverConfigurationManager;
