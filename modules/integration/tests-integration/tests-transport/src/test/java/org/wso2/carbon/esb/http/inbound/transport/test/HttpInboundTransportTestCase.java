@@ -41,7 +41,7 @@ public class HttpInboundTransportTestCase extends ESBIntegrationTest {
     }
 
     @Test(groups = "wso2.esb", description = "Inbound Http  test case", enabled = false)
-    public void inboundHttpTest() throws AxisFault {
+    public void testInboundHttp() throws AxisFault {
         try {
             OMElement response = axis2Client.sendSimpleStockQuoteRequest("http://localhost:8081/services/StockQuote", null, "IBM");
             Assert.assertNotNull(response);
@@ -58,16 +58,14 @@ public class HttpInboundTransportTestCase extends ESBIntegrationTest {
 
 
     private OMElement getArtifactConfig(String fileName) throws Exception {
-        OMElement synapseConfig = null;
         String path = "artifacts" + File.separator + "ESB" + File.separator
                 + "http.inbound.transport" + File.separator + fileName;
         try {
-            synapseConfig = esbUtils.loadResource(path);
+             return  esbUtils.loadResource(path);
         } catch (FileNotFoundException e) {
-            throw new Exception("File Location may be incorrect", e);
+            throw new Exception("File Location " + path + " is incorrect ", e);
         } catch (XMLStreamException e) {
             throw new XMLStreamException("XML Stream Exception while reading file stream", e);
         }
-        return synapseConfig;
     }
 }

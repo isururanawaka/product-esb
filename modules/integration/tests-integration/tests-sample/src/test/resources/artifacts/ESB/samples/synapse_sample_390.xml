@@ -30,6 +30,7 @@
     </registry>
 
     <localEntry key="xquery-key-req" src="file:repository/samples/resources/xquery/xquery_req.xq"/>
+    <localEntry key="xquery-key-res" src="file:repository/samples/resources/xquery/xquery_res.xq"/>
 
     <proxy name="StockQuoteProxy">
         <target>
@@ -46,7 +47,7 @@
             </inSequence>
             <outSequence>
                 <out>
-                    <xquery key="xquery/xquery_res.xq">
+                    <xquery key="xquery-key-res">
                         <variable xmlns:m0="http://services.samples" xmlns:ax21="http://services.samples/xsd"
                                   name="code" type="STRING"
                                   expression="self::node()//m0:return/ax21:symbol/child::text()"/>

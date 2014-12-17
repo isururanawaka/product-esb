@@ -19,17 +19,19 @@
   -->
 
 <!--How to initialize and use Spring bean as a mediator -->
-<definitions xmlns="http://ws.apache.org/ns/synapse">
+<definitions xmlns="http://ws.apache.org/ns/synapse"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://ws.apache.org/ns/synapse http://synapse.apache.org/ns/2010/04/configuration/synapse_config.xsd">
 
     <registry provider="org.apache.synapse.registry.url.SimpleURLRegistry">
         <parameter name="root">file:repository/samples/resources/</parameter>
         <parameter name="cachableDuration">15000</parameter>
     </registry>
-
+    <localEntry key="springCustomLogger" src="file:repository/samples/resources/spring/springCustomLogger.xml"/>
     <sequence name="main">
         <!--Setting the Spring Mediator and its Spring Beans xml file location -->
         <!--Note that springtest is the bean id used in springCustomLogger.xml -->
-        <spring bean="springtest" key="spring/springCustomLogger.xml"/>
+        <spring bean="springtest" key="springCustomLogger"/>
         <send/>
     </sequence>
 

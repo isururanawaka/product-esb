@@ -34,17 +34,12 @@ public class Sample391TestCase extends ESBIntegrationTest {
     }
 
      //Since It is used SimpleURLRegistry
-    @Test(groups = {"wso2.esb"}, description = "Sample 391:  Introduction to the XQuery mediator", enabled = false)
+    @Test(groups = {"wso2.esb"}, description = "Sample 391:  Introduction to the XQuery mediator")
     public void testXQueryTransformation() throws AxisFault {
         OMElement response;
 
-        response = axis2Client.sendSimpleStockQuoteRequest(
-                null,
-                getProxyServiceURLHttp("StockQuoteProxy"),
-                "IBM");
+        response = axis2Client.sendSimpleStockQuoteRequest(getProxyServiceURLHttp("StockQuoteProxy"),null,"IBM");
         assertTrue(response.toString().contains("IBM"));
-
-
     }
 
     @AfterClass(alwaysRun = true)
