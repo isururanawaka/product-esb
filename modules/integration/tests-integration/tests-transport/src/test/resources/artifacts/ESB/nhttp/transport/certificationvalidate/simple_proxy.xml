@@ -8,10 +8,10 @@
     <target>
         <inSequence>
             <log level="full"/>
-            <property name="POST_TO_URI" value="hello"/>
+            <property name="POST_TO_URI" value="hello" scopre="axis2"/>
             <send>
                 <endpoint>
-                    <address uri="https://localhost:8449"/>
+                    <address uri="https://localhost:8443"/>
                 </endpoint>
             </send>
         </inSequence>

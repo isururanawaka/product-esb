@@ -57,23 +57,23 @@ public class InboundAdminClient {
         endpointAdminStub = new InboundAdminStub(endPoint);
         AuthenticateStub.authenticateStub(userName, password, endpointAdminStub);
     }
-
-    /**
-     * Return all Inbound Endpoint Names
-     * @return InboundEndpointNames
-     * @throws RemoteException
-     * @throws InboundAdminInboundManagementException
-     */
-    public String getAllInboundEndpointNames() throws RemoteException, InboundAdminInboundManagementException {
-        try {
-            return endpointAdminStub.getAllInboundEndpointNames();
-        } catch (RemoteException e) {
-            throw new RemoteException("Exception occurred when get endpoint names in InboundAdminClient", e);
-        } catch (InboundAdminInboundManagementException e) {
-            throw new InboundAdminInboundManagementException
-                    ("Exception occurred when get endpoint names in InboundAdminClient", e);
-        }
-    }
+//
+//    /**
+//     * Return all Inbound Endpoint Names
+//     * @return InboundEndpointNames
+//     * @throws RemoteException
+//     * @throws InboundAdminInboundManagementException
+//     */
+//    public String getAllInboundEndpointNames() throws RemoteException, InboundAdminInboundManagementException {
+//        try {
+//            return endpointAdminStub.getAllInboundEndpointNames();
+//        } catch (RemoteException e) {
+//            throw new RemoteException("Exception occurred when get endpoint names in InboundAdminClient", e);
+//        } catch (InboundAdminInboundManagementException e) {
+//            throw new InboundAdminInboundManagementException
+//                    ("Exception occurred when get endpoint names in InboundAdminClient", e);
+//        }
+//    }
 
     /**
      * Return InboundEndpointDTO for specific InboundEndpoint
@@ -94,29 +94,29 @@ public class InboundAdminClient {
         }
     }
 
-    /**
-     * Adding Inbound Endpoint to the underlying stub.
-     * @param name Inbound Name
-     * @param sequence Injecting sequence
-     * @param onError Injecting sequence when error occurred
-     * @param protocol Running protocol
-     * @param classImpl Class for custom Inbounds
-     * @param sParams Inbound specific parameters
-     * @throws RemoteException
-     * @throws InboundAdminInboundManagementException
-     */
-    public void addInboundEndpoint(String name, String sequence,
-                                   String onError, String protocol, String classImpl,
-                                   String[] sParams) throws RemoteException, InboundAdminInboundManagementException {
-        try {
-            endpointAdminStub.addInboundEndpoint(name, sequence, onError, protocol, classImpl, sParams);
-        } catch (RemoteException e) {
-            throw new RemoteException("Remote Exception occurred when addInboundEndpoint" + name, e);
-        } catch (InboundAdminInboundManagementException e) {
-            throw new InboundAdminInboundManagementException("InboundAdminInboundManagementException  when add inbound " +
-                    "endpoint " + name + " InboundAdmin Client", e);
-        }
-    }
+//    /**
+//     * Adding Inbound Endpoint to the underlying stub.
+//     * @param name Inbound Name
+//     * @param sequence Injecting sequence
+//     * @param onError Injecting sequence when error occurred
+//     * @param protocol Running protocol
+//     * @param classImpl Class for custom Inbounds
+//     * @param sParams Inbound specific parameters
+//     * @throws RemoteException
+//     * @throws InboundAdminInboundManagementException
+//     */
+//    public void addInboundEndpoint(String name, String sequence,
+//                                   String onError, String protocol, String classImpl,
+//                                   String[] sParams) throws RemoteException, InboundAdminInboundManagementException {
+//        try {
+//            endpointAdminStub.addInboundEndpoint(name, sequence, onError, protocol, classImpl, sParams);
+//        } catch (RemoteException e) {
+//            throw new RemoteException("Remote Exception occurred when addInboundEndpoint" + name, e);
+//        } catch (InboundAdminInboundManagementException e) {
+//            throw new InboundAdminInboundManagementException("InboundAdminInboundManagementException  when add inbound " +
+//                    "endpoint " + name + " InboundAdmin Client", e);
+//        }
+//    }
 
     /**
      * Adding Inbound Endpoint to the underlying stub from XMLString
@@ -132,29 +132,29 @@ public class InboundAdminClient {
         }
     }
 
-    /**
-     * Update InboundEndpoint with given details for InboundEndpoint with given name
-     * @param name Inbound Name
-     * @param sequence Injecting sequence
-     * @param onError Injecting sequence when error occurred
-     * @param protocol Running protocol
-     * @param classImpl Class for custom Inbounds
-     * @param sParams Inbound specific parameters
-     * @throws RemoteException
-     * @throws InboundAdminInboundManagementException
-     */
-    public void updateInboundEndpoint(String name, String sequence,
-                                      String onError, String protocol, String classImpl,
-                                      String[] sParams) throws RemoteException, InboundAdminInboundManagementException {
-        try {
-            endpointAdminStub.updateInboundEndpoint(name, sequence, onError, protocol, classImpl, sParams);
-        } catch (RemoteException e) {
-            throw new RemoteException("RemoteException occurred when update inbound endpoint " + name + " InboundAdmin Client", e);
-        } catch (InboundAdminInboundManagementException e) {
-            throw new InboundAdminInboundManagementException("InboundAdminInboundManagementException when update inbound " +
-                    "endpoint InboundAdmin Client", e);
-        }
-    }
+//    /**
+//     * Update InboundEndpoint with given details for InboundEndpoint with given name
+//     * @param name Inbound Name
+//     * @param sequence Injecting sequence
+//     * @param onError Injecting sequence when error occurred
+//     * @param protocol Running protocol
+//     * @param classImpl Class for custom Inbounds
+//     * @param sParams Inbound specific parameters
+//     * @throws RemoteException
+//     * @throws InboundAdminInboundManagementException
+//     */
+//    public void updateInboundEndpoint(String name, String sequence,
+//                                      String onError, String protocol, String classImpl,
+//                                      String[] sParams) throws RemoteException, InboundAdminInboundManagementException {
+//        try {
+//            endpointAdminStub.updateInboundEndpoint(name, sequence, onError, protocol, classImpl, sParams);
+//        } catch (RemoteException e) {
+//            throw new RemoteException("RemoteException occurred when update inbound endpoint " + name + " InboundAdmin Client", e);
+//        } catch (InboundAdminInboundManagementException e) {
+//            throw new InboundAdminInboundManagementException("InboundAdminInboundManagementException when update inbound " +
+//                    "endpoint InboundAdmin Client", e);
+//        }
+//    }
 
     /**
      * Delete InboundEndpoint with given name
