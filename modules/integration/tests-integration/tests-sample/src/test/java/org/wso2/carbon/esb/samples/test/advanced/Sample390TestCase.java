@@ -37,7 +37,7 @@ public class Sample390TestCase extends ESBIntegrationTest {
     }
     //since it use SimpleURLRegistry
     @Test(groups = "wso2.esb", description =
-            "Add a XQuery transformation logic as a local entry; Refer it inside a XQuery mediator ", enabled = false)
+            "Add a XQuery transformation logic as a local entry; Refer it inside a XQuery mediator ")
     public void XQueryTransformationInSideXQueryIntegrationTest() throws Exception {
 
         OMElement response = axis2Client.sendCustomQuoteRequest(getProxyServiceURLHttp("StockQuoteProxy"), null, "WSO2");

@@ -16,16 +16,22 @@
     <class name="org.wso2.carbon.esb.samples.test.miscellaneous.Sample100TestCase"/>
     </classes>
     </test>
+
+
     <test name="ESB-Sample-Advance-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.advanced.*"/>
         </packages>
     </test>
+
+
     <test name="ESB-Sample-Endpoint-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.endpoint.*"/>
         </packages>
     </test>
+
+
     <test name="ESB-Sample-Mediation-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.mediation.*"/>
@@ -43,11 +49,15 @@
            </class>
         </classes>
     </test>
+
+
     <test name="ESB-Sample-Messaging-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.messaging.*"/>
         </packages>
     </test>
+
+
     <test name="ESB-Sample-Miscellaneous-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.miscellaneous.*"/>
@@ -60,31 +70,40 @@
            </class>
         </classes>
     </test>
+
+
     <test name="ESB-Sample-Proxy-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.proxy.*"/>
         </packages>
     </test>
+
+
     <test name="ESB-Sample-Template-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.template.*"/>
         </packages>
     </test>
+
+
     <test name="ESB-Sample-Transport-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.transport.*"/>
 
         </packages>
     </test>
+
+
     <test name="ESB-Sample-StreamingXpath-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.samples.test.streamingxpath.*"/>
         </packages>
     </test>
-    <test name="ESB-Sample-PriorityExecutor" preserve-order="true" verbose="2">
-    <packages>
-    <package name="org.wso2.carbon.esb.samples.test.mediation.priorityexecutor.*"/>
-    </packages>
+
+    <test name="ESB-Sample-StreamingXpath-Test" preserve-order="true" verbose="2">
+        <packages>
+            <package name="org.wso2.carbon.esb.samples.test.json.*"/>
+        </packages>
     </test>
 
 </suite>

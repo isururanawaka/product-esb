@@ -28,7 +28,8 @@
         <!-- all resources loaded from the URL registry would be cached for this number of milli seconds -->
         <parameter name="cachableDuration">15000</parameter>
     </registry>
-
+    <localEntry key="xquery_commisson" src="file:repository/samples/resources/xquery/xquery_commisson.xq"/>
+    <localEntry key="commission" src="file:repository/samples/resources/misc/commission.xml"/>
     <proxy name="StockQuoteProxy">
         <target>
             <inSequence>
@@ -40,9 +41,9 @@
             </inSequence>
             <outSequence>
                 <out>
-                    <xquery key="xquery/xquery_commisson.xq">
+                    <xquery key="xquery_commisson">
                         <variable name="payload" type="ELEMENT"/>
-                        <variable name="commission" type="ELEMENT" key="misc/commission.xml"/>
+                        <variable name="commission" type="ELEMENT" key="commission"/>
                     </xquery>
                     <send/>
                 </out>
