@@ -259,7 +259,6 @@
         <!--parameter name="WSDLEPRPrefix" locked="false">https://apachehost:port/somepath</parameter-->
         <parameter name="httpGetProcessor" locked="false">org.wso2.carbon.transport.nhttp.api.PassThroughNHttpGetProcessor</parameter>
         <!--<parameter name="priorityConfigFile" locked="false">location of priority configuration file</parameter>-->
-
     </transportReceiver>
 
     <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">
@@ -278,24 +277,20 @@
         </parameter>
         <parameter name="truststore" locked="false">
             <TrustStore>
-                <Location>/Users/vijithae/developments/wso2-products/wso2esb-4.8.1/repository/resources/security/client-truststore.jks</Location>
+                <Location>repository/resources/security/client-truststore.jks</Location>
                 <Type>JKS</Type>
                 <Password>wso2carbon</Password>
             </TrustStore>
         </parameter>
-
-        <!--<parameter name="SSLVerifyClient">require</parameter>
-            supports optional|require or defaults to none -->
+        <parameter name="SSLVerifyClient">require</parameter>
+        <!--supports optional|require or defaults to none -->
     </transportReceiver>
 
     <transportReceiver name="local" class="org.wso2.carbon.core.transports.local.CarbonLocalTransportReceiver"/>
 
     <!--<transportReceiver name="vfs" class="org.apache.synapse.transport.vfs.VFSTransportListener"/>-->
 
-    <!--<transportReceiver name="mailto" class="org.apache.axis2.transport.mail.MailTransportListener">-->
-    <!-- configure any optional POP3/IMAP properties
-    check com.sun.mail.pop3 and com.sun.mail.imap package documentation for more details-->
-    <!--</transportReceiver>-->
+    <transportReceiver name="mailto" class="org.apache.axis2.transport.mail.MailTransportListener"/>
 
     <!--Uncomment this and configure as appropriate for JMS transport support, after setting up your JMS environment (e.g. ActiveMQ)
     <transportReceiver name="jms" class="org.apache.axis2.transport.jms.JMSListener">
@@ -403,15 +398,13 @@
         </parameter>
         <parameter name="truststore" locked="false">
             <TrustStore>
-                <Location>/Users/vijithae/developments/wso2-products/wso2esb-4.8.1/repository/resources/security/client-truststore.jks</Location>
+                <Location>repository/resources/security/client-truststore.jks</Location>
                 <Type>JKS</Type>
                 <Password>wso2carbon</Password>
             </TrustStore>
         </parameter>
-        <parameter name="HostnameVerifier">AllowAll</parameter>
-        <parameter name="SSLVerifyClient">require</parameter>
-
-        <!--supports Strict|AllowAll|DefaultAndLocalhost or the default if none specified -->
+        <!--<parameter name="HostnameVerifier">AllowAll</parameter>
+        supports Strict|AllowAll|DefaultAndLocalhost or the default if none specified -->
     </transportSender>
 
     <transportSender name="local" class="org.wso2.carbon.core.transports.local.CarbonLocalTransportSender"/>
@@ -435,6 +428,16 @@
         <parameter name="mail.smtp.password">mailpassword</parameter>
         <parameter name="mail.smtp.from">synapse.demo.0@gmail.com</parameter>
     </transportSender>-->
+
+    <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
+        <parameter name="mail.smtp.host">smtp.gmail.com</parameter>
+        <parameter name="mail.smtp.port">587</parameter>
+        <parameter name="mail.smtp.starttls.enable">true</parameter>
+        <parameter name="mail.smtp.auth">true</parameter>
+        <parameter name="mail.smtp.user">test.automation.dummy</parameter>
+        <parameter name="mail.smtp.password">automation.test</parameter>
+        <parameter name="mail.smtp.from">test.automation.dummy@gmail.com</parameter>
+    </transportSender>
 
     <!--Uncomment this for FIX transport support
     <transportSender name="fix" class="org.apache.synapse.transport.fix.FIXTransportSender"/>
@@ -585,7 +588,7 @@
     <!-- ================================================= -->
 
     <!--
-        Uncomment and configure the following section to enable transactions support 
+        Uncomment and configure the following section to enable transactions support
     -->
     <!--<transaction timeout="30000">
         <parameter name="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>

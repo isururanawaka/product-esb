@@ -45,16 +45,18 @@ public class SecureConnectionTestCase extends ESBIntegrationTest {
 				new ServerConfigurationManager(new AutomationContext("ESB", TestUserMode.SUPER_TENANT_ADMIN));
 		serverConfigurationManager.applyConfiguration(new File(resourceFolderPath + "axis2.xml"));
 		//serverConfigurationManager.applyConfiguration(new File(resourceFolderPath + "carbon.xml"));
-//		System.setProperty("javax.net.ssl.keyStore",  new File("/Users/vijithae/developments/wso2-products/wso2esb-4.8" +
-//		                                                       ".1/repository/resources/security/MyCompany.jks").getAbsolutePath());
-//		System.setProperty("javax.net.ssl.keyStorePassword", "wso2carbon");
-//
-//		//Set key store, this must contain the user private key
-//		//here we have use both trust store and key store as the same key store
-//		// But you can use a separate key store for key store an trust store.
-//		System.setProperty("javax.net.ssl.keyStore",  new File("/Users/vijithae/developments/wso2-products/wso2esb-4.8" +
-//		                                                       ".1/repository/resources/security/MyCompany.jks").getAbsolutePath());
-//		System.setProperty("javax.net.ssl.keyStorePassword", "wso2carbon");
+		System.setProperty("javax.net.ssl.keyStore",  new File(
+				CarbonUtils.getCarbonHome() + separator + "repository" + separator + "resources" + separator +
+				"security" + separator + "wso2carbon.jks").getAbsolutePath());
+		System.setProperty("javax.net.ssl.keyStorePassword", "wso2carbon");
+
+		//Set key store, this must contain the user private key
+		//here we have use both trust store and key store as the same key store
+		// But you can use a separate key store for key store an trust store.
+		System.setProperty("javax.net.ssl.keyStore",  new File(
+				CarbonUtils.getCarbonHome() + separator + "repository" + separator + "resources" + separator +
+				"security" + separator + "wso2carbon.jks").getAbsolutePath());
+		System.setProperty("javax.net.ssl.keyStorePassword", "wso2carbon");
 
 		super.init();
 		loadESBConfigurationFromClasspath("/artifacts/ESB/nhttp/transport/certificationvalidate/simple_proxy.xml");
