@@ -413,6 +413,7 @@ public class ESBTestCaseUtils {
     }
 
     /**
+     * Upload connector zip to file system
      * @param backEndUrl
      * @param sessionCookie
      * @param fileItems
@@ -427,6 +428,7 @@ public class ESBTestCaseUtils {
     }
 
     /**
+     * Update connector status
      * @param backEndUrl
      * @param sessionCookie
      * @param libQName
@@ -443,6 +445,7 @@ public class ESBTestCaseUtils {
     }
 
     /**
+     * Provide All Imports
      * @param backEndUrl
      * @param sessionCookie
      * @return
@@ -454,9 +457,8 @@ public class ESBTestCaseUtils {
         return mediationLibraryAdminServiceClient.getAllImports();
     }
 
-
-
     /**
+     * Delete connector from file system
      * @param backEndUrl
      * @param sessionCookie
      * @param liqQualifiedname

@@ -19,11 +19,9 @@
 package org.wso2.carbon.esb.connector;
 
 import junit.framework.Assert;
-import org.apache.axiom.om.OMElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
-import org.wso2.esb.integration.common.utils.ESBTestCaseUtils;
 import org.wso2.esb.integration.common.utils.common.TestConfigurationProvider;
 
 import java.io.File;
@@ -46,11 +44,11 @@ public class ConnectorTest extends ESBIntegrationTest {
 
     @Test(groups = {"wso2.esb"}, description = "Echo Connector integration test.")
     public void testEchoConnector() throws Exception {
-       String[] imports =  getAllImports();
-        boolean passed=false;
-        for(String impor : imports){
-            if(impor.equals("{org.wso2.carbon.connectors}echo")){
-                passed =true;
+        String[] imports = getAllImports();
+        boolean passed = false;
+        for (String impor : imports) {
+            if (impor.equals("{org.wso2.carbon.connectors}echo")) {
+                passed = true;
             }
         }
         Assert.assertTrue(passed);

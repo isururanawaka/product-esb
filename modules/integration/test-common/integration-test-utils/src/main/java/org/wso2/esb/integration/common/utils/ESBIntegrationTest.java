@@ -209,9 +209,6 @@ public abstract class ESBIntegrationTest {
      return esbUtils.getAllImports(contextUrls.getBackEndUrl(),sessionCookie);
     }
 
-
-
-
     protected void updateESBConfiguration(OMElement synapseConfig) throws Exception {
 
         if (synapseConfiguration == null) {
@@ -276,14 +273,14 @@ public abstract class ESBIntegrationTest {
 
     protected void deleteInboundEndpoints() throws Exception {
         try {
-          InboundEndpointDTO[] inboundEndpointDTOs =   esbUtils.getAllInboundEndpoints(contextUrls.getBackEndUrl(), sessionCookie);
-            if(inboundEndpointDTOs!=null) {
+            InboundEndpointDTO[] inboundEndpointDTOs = esbUtils.getAllInboundEndpoints(contextUrls.getBackEndUrl(), sessionCookie);
+            if (inboundEndpointDTOs != null) {
                 for (InboundEndpointDTO inboundEndpointDTO : inboundEndpointDTOs) {
                     esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie, inboundEndpointDTO.getName());
                 }
             }
         } catch (Exception e) {
-            throw new Exception("Error when deleting InboundEndpoint",e);
+            throw new Exception("Error when deleting InboundEndpoint", e);
         }
     }
 
@@ -340,7 +337,6 @@ public abstract class ESBIntegrationTest {
         uploadServiceTypes = uploadLibraryInfoList.toArray(uploadServiceTypes);
         esbUtils.uploadConnector(contextUrls.getBackEndUrl(),sessionCookie,uploadServiceTypes);
     }
-
 
     protected void updateConnectorStatus(String libQName, String libName,
                                          String packageName, String status) throws RemoteException {
