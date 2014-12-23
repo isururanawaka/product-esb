@@ -33,6 +33,9 @@ import org.wso2.carbon.automation.engine.frameworkutils.FrameworkPathUtil;
 import org.wso2.carbon.inbound.stub.types.carbon.InboundEndpointDTO;
 import org.wso2.carbon.integration.common.admin.client.SecurityAdminServiceClient;
 import org.wso2.carbon.integration.common.utils.LoginLogoutClient;
+import org.wso2.carbon.mediation.library.stub.MediationLibraryAdminServiceException;
+import org.wso2.carbon.mediation.library.stub.upload.MediationLibraryUploaderStub;
+import org.wso2.carbon.mediation.library.stub.upload.types.carbon.LibraryFileItem;
 import org.wso2.carbon.security.mgt.stub.config.SecurityAdminServiceSecurityConfigExceptionException;
 import org.wso2.carbon.sequences.stub.types.SequenceEditorException;
 import org.wso2.esb.integration.common.clients.mediation.SynapseConfigAdminClient;
@@ -49,7 +52,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -136,6 +141,7 @@ public abstract class ESBIntegrationTest {
             deletePriorityExecutors();
 
             deleteScheduledTasks();
+
             deleteInboundEndpoints();
 
         } finally {
@@ -193,6 +199,18 @@ public abstract class ESBIntegrationTest {
         updateESBConfiguration(synapseConfig);
 
     }
+
+    protected void deleteLibrary(String fullQualifiedName)
+            throws MediationLibraryAdminServiceException, RemoteException {
+        esbUtils.deleteLibrary(contextUrls.getBackEndUrl(),sessionCookie,fullQualifiedName);
+    }
+
+    protected  String[]  getAllImports() throws RemoteException {
+     return esbUtils.getAllImports(contextUrls.getBackEndUrl(),sessionCookie);
+    }
+
+
+
 
     protected void updateESBConfiguration(OMElement synapseConfig) throws Exception {
 
@@ -259,8 +277,10 @@ public abstract class ESBIntegrationTest {
     protected void deleteInboundEndpoints() throws Exception {
         try {
           InboundEndpointDTO[] inboundEndpointDTOs =   esbUtils.getAllInboundEndpoints(contextUrls.getBackEndUrl(), sessionCookie);
-            for (InboundEndpointDTO inboundEndpointDTO:inboundEndpointDTOs) {
-                esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie,inboundEndpointDTO.getName());
+            if(inboundEndpointDTOs!=null) {
+                for (InboundEndpointDTO inboundEndpointDTO : inboundEndpointDTOs) {
+                    esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie, inboundEndpointDTO.getName());
+                }
             }
         } catch (Exception e) {
             throw new Exception("Error when deleting InboundEndpoint",e);
@@ -303,6 +323,28 @@ public abstract class ESBIntegrationTest {
             sequencesList = new ArrayList<String>();
         }
         sequencesList.add(sequenceName);
+    }
+
+
+    protected  void uploadConnector(String repoLocation, String strFileName) throws MalformedURLException,
+                                                                  RemoteException {
+        List<LibraryFileItem> uploadLibraryInfoList = new ArrayList<LibraryFileItem>();
+        LibraryFileItem uploadedFileItem = new LibraryFileItem();
+        uploadedFileItem.setDataHandler(new DataHandler(new URL("file:" + File.separator +
+                                                                File.separator + repoLocation +
+                                                                File.separator + strFileName)));
+        uploadedFileItem.setFileName(strFileName);
+        uploadedFileItem.setFileType("zip");
+        uploadLibraryInfoList.add(uploadedFileItem);
+        LibraryFileItem[] uploadServiceTypes = new LibraryFileItem[uploadLibraryInfoList.size()];
+        uploadServiceTypes = uploadLibraryInfoList.toArray(uploadServiceTypes);
+        esbUtils.uploadConnector(contextUrls.getBackEndUrl(),sessionCookie,uploadServiceTypes);
+    }
+
+
+    protected void updateConnectorStatus(String libQName, String libName,
+                                         String packageName, String status) throws RemoteException {
+        esbUtils.updateConnectorStatus(contextUrls.getBackEndUrl(),sessionCookie,libQName, libName, packageName, status);
     }
 
     protected void addEndpoint(OMElement endpointConfig)

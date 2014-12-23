@@ -110,7 +110,7 @@ public class InboundAdminClient {
                                    String onError, String protocol, String classImpl,
                                    Map<String, String> paramsMap) throws RemoteException, InboundAdminInboundManagementException {
         try {
-            ParameterDTO[] parameterDTOs =null;
+            ParameterDTO[] parameterDTOs = null;
             if(paramsMap != null) {
                 parameterDTOs = new ParameterDTO[paramsMap.size()];
                 int count=0;
