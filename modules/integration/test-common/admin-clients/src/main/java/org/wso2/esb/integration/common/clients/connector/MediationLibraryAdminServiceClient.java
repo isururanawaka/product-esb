@@ -55,7 +55,7 @@ public class MediationLibraryAdminServiceClient {
     }
 
     public String[] getAllImports() throws RemoteException {
-      return   mediationLibraryAdminServiceStub.getAllImports();
+        return mediationLibraryAdminServiceStub.getAllImports();
     }
 
 }

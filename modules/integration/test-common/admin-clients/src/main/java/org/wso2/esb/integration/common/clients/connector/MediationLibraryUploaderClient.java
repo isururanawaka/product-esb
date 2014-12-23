@@ -41,7 +41,6 @@ public class MediationLibraryUploaderClient {
         String endPoint = backEndUrl + serviceName;
         mediationLibraryUploaderStub = new MediationLibraryUploaderStub(endPoint);
         AuthenticateStub.authenticateStub(userName, password, mediationLibraryUploaderStub);
-
     }
 
     public void uploadConnector(LibraryFileItem[] libraryFileItems) throws RemoteException {
