@@ -26,6 +26,7 @@ import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.testng.Assert;
 import org.wso2.carbon.endpoint.stub.types.EndpointAdminEndpointAdminException;
 import org.wso2.carbon.inbound.stub.types.carbon.InboundEndpointDTO;
@@ -49,7 +50,6 @@ import org.wso2.esb.integration.common.clients.template.EndpointTemplateAdminSer
 import org.wso2.esb.integration.common.clients.template.SequenceTemplateAdminServiceClient;
 import org.wso2.esb.integration.common.utils.common.TestConfigurationProvider;
 
-import javax.servlet.ServletException;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -383,6 +383,83 @@ public class ESBTestCaseUtils {
 		InboundAdminClient inboundAdmin = new InboundAdminClient(backEndUrl, sessionCookie);
 		inboundAdmin.addInboundEndpoint(inboundEndpoint.toString());
 		isInboundEndpointDeployed(backEndUrl, sessionCookie, inboundEndpoint.getAttributeValue(new QName("name")));
+	}
+
+	/**
+	 * Adds Inbound Endpoint using parameters
+	 * @param backEndUrl
+	 * @param sessionCookie
+	 * @param inboundEndpoint
+	 * @throws Exception
+	 */
+	public void addInboundEndpointFromParams(String backEndUrl, String sessionCookie, OMElement inboundEndpoint)
+			throws Exception {
+		InboundAdminClient inboundAdmin = new InboundAdminClient(backEndUrl, sessionCookie);
+
+		Map<String, String> mParams = generateParameterMap(inboundEndpoint);
+
+
+		inboundAdmin.addInboundEndpoint(inboundEndpoint.getAttribute(new QName("name")).getAttributeValue(),
+		                                   inboundEndpoint.getAttribute(new QName("sequence")).getAttributeValue(),
+		                                   inboundEndpoint.getAttribute(new QName("onError")).getAttributeValue(),
+		                                   inboundEndpoint.getAttribute(new QName("protocol")).getAttributeValue(),
+		                                   null,
+		                                   mParams);
+		isInboundEndpointDeployed(backEndUrl, sessionCookie, inboundEndpoint.getAttributeValue(new QName("name")));
+	}
+
+	/**
+	 * Updates inbound Endpoint Using Parameters
+	 * @param backEndUrl
+	 * @param sessionCookie
+	 * @param inboundEndpoint
+	 * @throws Exception
+	 */
+	public void updateInboundEndpoint(String backEndUrl, String sessionCookie, OMElement inboundEndpoint)
+			throws Exception {
+		InboundAdminClient inboundAdmin = new InboundAdminClient(backEndUrl, sessionCookie);
+
+		Map<String, String> mParams = generateParameterMap(inboundEndpoint);
+
+		if(inboundEndpoint.getAttribute(new QName("protocol")).getAttributeValue() != null) {
+			inboundAdmin.updateInboundEndpoint(inboundEndpoint.getAttribute(new QName("name")).getAttributeValue(),
+			                                   inboundEndpoint.getAttribute(new QName("sequence")).getAttributeValue(),
+			                                   inboundEndpoint.getAttribute(new QName("onError")).getAttributeValue(),
+			                                   inboundEndpoint.getAttribute(new QName("protocol")).getAttributeValue(),
+			                                   null,
+			                                   mParams);
+		} else {
+			inboundAdmin.updateInboundEndpoint(inboundEndpoint.getAttribute(new QName("name")).getAttributeValue(),
+			                                   inboundEndpoint.getAttribute(new QName("sequence")).getAttributeValue(),
+			                                   inboundEndpoint.getAttribute(new QName("onError")).getAttributeValue(),
+			                                   null,
+			                                   inboundEndpoint.getAttribute(new QName("classImpl")).getAttributeValue(),
+			                                   mParams);
+		}
+		isInboundEndpointDeployed(backEndUrl, sessionCookie, inboundEndpoint.getAttributeValue(new QName("name")));
+	}
+
+	/**
+	 * populates endpoint parameter map
+	 * @param element
+	 * @return created Inbound Endpoint parametr map
+	 */
+	private Map<String,String> generateParameterMap(OMElement element) {
+
+			Map<String,String> paramMap = new HashMap<String, String>();
+			OMElement params = element.getFirstChildWithName(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,
+			                                                           "parameters"));
+		if (params != null) {
+			Iterator<OMElement> iterator = params.getChildrenWithName(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,"parameter"));
+			while (iterator.hasNext()) {
+				OMElement parametreElement = iterator.next();
+				String nameAttr = parametreElement.getAttribute(new QName("name")).getAttributeValue();
+				String valueAttr = parametreElement.getText();
+				paramMap.put(nameAttr,valueAttr);
+			}
+		}
+
+		return paramMap;
 	}
 
 	public void isInboundEndpointDeployed(String backEndUrl, String sessionCookie, String name)

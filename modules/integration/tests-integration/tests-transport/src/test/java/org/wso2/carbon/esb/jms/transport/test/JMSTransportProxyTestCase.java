@@ -29,6 +29,7 @@ import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 import org.wso2.esb.integration.common.utils.JMSEndpointManager;
 
 public class JMSTransportProxyTestCase extends ESBIntegrationTest {
+
     @BeforeClass(alwaysRun = true)
     protected void init() throws Exception {
         super.init();
@@ -80,6 +81,6 @@ public class JMSTransportProxyTestCase extends ESBIntegrationTest {
 
     @AfterClass(alwaysRun = true)
     public void destroy() throws Exception {
-        super.cleanup();
+	    super.cleanup();
     }
 }

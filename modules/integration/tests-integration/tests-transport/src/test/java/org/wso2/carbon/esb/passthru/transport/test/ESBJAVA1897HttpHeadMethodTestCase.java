@@ -81,6 +81,22 @@ public class ESBJAVA1897HttpHeadMethodTestCase extends  ESBIntegrationTest{
     	
     }
 
+	@Test(groups = "wso2.esb", description = "test to verify that the HTTP HEAD method works with NHTTPTT.")
+	public void testNHttpHeadMethod() throws Exception {
+		loadESBConfigurationFromClasspath("/artifacts/ESB/nhttp/transport/axis2.xml");
+		Thread.sleep(5000);
+		String restURL = (getProxyServiceURLHttp(SERVICE_NAME)) + "/students";
+		DefaultHttpClient httpclient = new DefaultHttpClient();
+		HttpHead httpHead = new HttpHead(restURL);
+		HttpResponse response = httpclient.execute(httpHead);
+
+		// http head method should return a 202 Accepted
+		assertTrue(response.getStatusLine().getStatusCode() == 202);
+		// it should not contain a message body
+		assertTrue(response.getEntity() == null);
+
+	}
+
 
     @AfterClass(alwaysRun = true)
     public void destroy() throws Exception {

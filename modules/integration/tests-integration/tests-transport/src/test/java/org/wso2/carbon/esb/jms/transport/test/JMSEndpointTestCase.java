@@ -5,15 +5,18 @@ import org.apache.axiom.om.OMElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.wso2.esb.integration.common.clients.endpoint.EndPointAdminClient;
 import org.wso2.carbon.automation.extensions.servers.jmsserver.client.JMSQueueMessageConsumer;
 import org.wso2.carbon.automation.extensions.servers.jmsserver.client.JMSQueueMessageProducer;
 import org.wso2.carbon.automation.extensions.servers.jmsserver.controller.config.JMSBrokerConfigurationProvider;
+import org.wso2.esb.integration.common.clients.endpoint.EndPointAdminClient;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 import org.wso2.esb.integration.common.utils.JMSEndpointManager;
+import org.wso2.esb.integration.common.utils.servers.ActiveMQServer;
 
 public class JMSEndpointTestCase extends ESBIntegrationTest {
     private EndPointAdminClient endPointAdminClient;
+	private ActiveMQServer activeMQServer
+			= new ActiveMQServer();
 
     @BeforeClass(alwaysRun = true)
     public void deployeService() throws Exception {
@@ -21,6 +24,7 @@ public class JMSEndpointTestCase extends ESBIntegrationTest {
         OMElement synapse = esbUtils.loadResource("/artifacts/ESB/jms/transport/jms_transport.xml");
         updateESBConfiguration(JMSEndpointManager.setConfigurations(synapse));
         endPointAdminClient = new EndPointAdminClient(contextUrls.getBackEndUrl(), getSessionCookie());
+	    activeMQServer.startJMSBrokerAndConfigureESB();
     }
 
 
@@ -71,6 +75,7 @@ public class JMSEndpointTestCase extends ESBIntegrationTest {
     public void UndeployeService() throws Exception {
         super.init();
         endPointAdminClient = null;
+	    activeMQServer.stopJMSBrokerRevertESBConfiguration();
         super.cleanup();
     }
 }

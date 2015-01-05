@@ -62,6 +62,25 @@ public class ESBJAVA3022SendingSoapRequestAfterRestRequestTestCase extends ESBIn
         assertFalse(responseText.contains("soapenv:Body"), "Another <soapenv:Body> tag found inside soap body.");
     }
 
+	@Test(groups = "wso2.esb", description = "nthhp transport test to verify that the soap builder/formatter is " +
+	                                         "invoked properly" +
+	                                         "when the soap request is made after rest request.")
+	public void testNhttpSendingSoapCallAfterRestCall() throws Exception {
+		loadESBConfigurationFromClasspath("/artifacts/ESB/nhttp/transport/axis2.xml");
+		String restURL = getApiInvocationURL("api_poc_messagetype");//esbServer.getServiceUrl() + "/testmessagetype";
+		DefaultHttpClient httpclient = new DefaultHttpClient();
+		HttpGet request = new HttpGet(restURL);
+		HttpResponse response = httpclient.execute(request);
+		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+		String responseText = "";
+		String line = "";
+		while ((line = rd.readLine()) != null) {
+			responseText = responseText.concat(line);
+		}
+		assertFalse(responseText.contains("soapenv:Envelope"), "Another <soapenv:Envelope> tag found inside soap body.");
+		assertFalse(responseText.contains("soapenv:Body"), "Another <soapenv:Body> tag found inside soap body.");
+	}
+
 
     @AfterClass(alwaysRun = true)
     public void destroy() throws Exception {

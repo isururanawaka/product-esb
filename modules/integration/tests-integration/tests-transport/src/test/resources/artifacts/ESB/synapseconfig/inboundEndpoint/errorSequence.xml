@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="inFault">
+        <log category="INFO" level="full" separator=",">
+            <property name="fault" value="Inside the Fault sequence"/>
+        </log>
+</sequence>

@@ -256,16 +256,50 @@ public abstract class ESBIntegrationTest {
 		}
 	}
 
+	protected void addInboundEndpointFromParams(OMElement inboundEndpoint) throws Exception {
+		try {
+			esbUtils.addInboundEndpointFromParams(contextUrls.getBackEndUrl(), sessionCookie, inboundEndpoint);
+		} catch (Exception e) {
+			throw new Exception("Error when adding InboundEndpoint",e);
+		}
+	}
+
+	protected void updateInboundEndpoint(OMElement inboundEndpoint) throws Exception {
+		try {
+			esbUtils.updateInboundEndpoint(contextUrls.getBackEndUrl(), sessionCookie, inboundEndpoint);
+		} catch (Exception e) {
+			throw new Exception("Error when adding InboundEndpoint",e);
+		}
+	}
+
+
+
+
 	protected void deleteInboundEndpoints() throws Exception {
 		try {
 			InboundEndpointDTO[] inboundEndpointDTOs =   esbUtils.getAllInboundEndpoints(contextUrls.getBackEndUrl(), sessionCookie);
-			for (InboundEndpointDTO inboundEndpointDTO:inboundEndpointDTOs) {
-				esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie,inboundEndpointDTO.getName());
+			if(inboundEndpointDTOs != null) {
+				for (InboundEndpointDTO inboundEndpointDTO : inboundEndpointDTOs) {
+					esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie,
+					                                       inboundEndpointDTO.getName());
+				}
 			}
 		} catch (Exception e) {
 			throw new Exception("Error when deleting InboundEndpoint",e);
 		}
 	}
+
+	protected void deleteInboundEndpointFromName(String name) throws Exception {
+		try {
+
+					esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie,
+					                                       name);
+		} catch (Exception e) {
+			throw new Exception("Error when deleting InboundEndpoint",e);
+		}
+	}
+
+
 
 	protected void isProxyDeployed(String proxyServiceName) throws Exception {
 		Assert.assertTrue(esbUtils.isProxyDeployed(contextUrls.getBackEndUrl(), sessionCookie,
