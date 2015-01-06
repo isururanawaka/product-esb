@@ -69,28 +69,28 @@ public class PassthroughTransportHttpProxyTestCase extends ESBIntegrationTest {
         assertTrue(proxyhostEntryFound);
     }
 
-	@Test(groups = "wso2.esb", description = "Nhttp Transport Http.proxy test case")
-	public void NhttpTransportHttpProxy() throws Exception {
-		loadESBConfigurationFromClasspath("/artifacts/ESB/nhttp/transport/axis2.xml");
-		int beforeLogSize = logViewer.getAllSystemLogs().length;
-
-		try {
-			axis2Client.sendSimpleStockQuoteRequest(getProxyServiceURLHttp("HttpProxyTest"), "", "IBM");
-		} catch (AxisFault expected) {
-			//read timeout expected
-		}
-		LogEvent[] logs = logViewer.getAllSystemLogs();
-		int afterLogSize = logs.length;
-
-		boolean proxyhostEntryFound = false;
-		for (int i = 0; i < (afterLogSize - beforeLogSize); i++) {
-			if (logs[i].getMessage().contains("111.wso2.com:7777")) {
-				proxyhostEntryFound = true;
-				break;
-			}
-		}
-		assertTrue(proxyhostEntryFound);
-	}
+//	@Test(groups = "wso2.esb", description = "Nhttp Transport Http.proxy test case")
+//	public void NhttpTransportHttpProxy() throws Exception {
+//		loadESBConfigurationFromClasspath("/artifacts/ESB/nhttp/transport/axis2.xml");
+//		int beforeLogSize = logViewer.getAllSystemLogs().length;
+//
+//		try {
+//			axis2Client.sendSimpleStockQuoteRequest(getProxyServiceURLHttp("HttpProxyTest"), "", "IBM");
+//		} catch (AxisFault expected) {
+//			//read timeout expected
+//		}
+//		LogEvent[] logs = logViewer.getAllSystemLogs();
+//		int afterLogSize = logs.length;
+//
+//		boolean proxyhostEntryFound = false;
+//		for (int i = 0; i < (afterLogSize - beforeLogSize); i++) {
+//			if (logs[i].getMessage().contains("111.wso2.com:7777")) {
+//				proxyhostEntryFound = true;
+//				break;
+//			}
+//		}
+//		assertTrue(proxyhostEntryFound);
+//	}
 
     @AfterClass(alwaysRun = true)
     public void destroy() throws Exception {

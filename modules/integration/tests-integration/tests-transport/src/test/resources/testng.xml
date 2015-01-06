@@ -45,12 +45,12 @@
         </classes>
     </test>
 
-     <test name="TCP-transport-Test" preserve-order="true" verbose="2">
+    <!--    <test name="TCP-transport-Test" preserve-order="true" verbose="2">
             <packages>
                 <package name="org.wso2.carbon.esb.tcp.transport.test.*"/>
             </packages>
         </test>
-
+    -->
     <!--disabled since feature management is used to install hl7 feature-->
     <!--    <test name="HL7-transport-Test" preserve-order="true" verbose="2">
             <packages>
@@ -63,6 +63,11 @@
             <package name="org.wso2.carbon.esb.passthru.transport.test"/>
         </packages>
     </test>
+    <!--    <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">
+            <packages>
+                <package name="org.wso2.carbon.esb.http.inbound.transport.test"/>
+            </packages>
+        </test> -->
 
     <test name="JMS Inbound Test" preserve-order="true" verbose="2">
         <packages>

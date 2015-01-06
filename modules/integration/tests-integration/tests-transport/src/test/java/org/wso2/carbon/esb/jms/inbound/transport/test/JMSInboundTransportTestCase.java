@@ -288,7 +288,7 @@ public class JMSInboundTransportTestCase extends ESBIntegrationTest {
 
 	@Test(groups = { "wso2.esb" }, description = "Test Inbound End points")
 	public void testInvalidIntervalInboundEndpointJMS() throws Exception {
-		//addInboundEndpointFromParams(addEndpoint7());
+		addInboundEndpointFromParams(addEndpoint7());
 		//deleteInboundEndpointFromName("TestJMS10");
 		//		addInboundEndpoint(addEndpoint3());
 		//		deleteInboundEndpoints();
@@ -299,7 +299,7 @@ public class JMSInboundTransportTestCase extends ESBIntegrationTest {
 
 	@Test(groups = { "wso2.esb" }, description = "Test Inbound End points")
 	public void testInvalidCacheLevelInboundEndpointJMS() throws Exception {
-		//addInboundEndpointFromParams(addEndpoint8());
+		addInboundEndpointFromParams(addEndpoint8());
 		//deleteInboundEndpointFromName("TestJMS10");
 		//		addInboundEndpoint(addEndpoint3());
 		//		deleteInboundEndpoints();
