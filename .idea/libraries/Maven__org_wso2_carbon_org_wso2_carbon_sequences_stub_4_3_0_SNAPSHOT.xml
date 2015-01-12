@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.wso2.carbon:org.wso2.carbon.sequences.stub:4.3.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.sequences.stub/4.3.0-SNAPSHOT/org.wso2.carbon.sequences.stub-4.3.0-20141212.202615-326.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.sequences.stub/4.3.0-SNAPSHOT/org.wso2.carbon.sequences.stub-4.3.0-20150111.215823-361.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.sequences.stub/4.3.0-SNAPSHOT/org.wso2.carbon.sequences.stub-4.3.0-20141212.202615-326-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.sequences.stub/4.3.0-SNAPSHOT/org.wso2.carbon.sequences.stub-4.3.0-20150111.215823-361-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.sequences.stub/4.3.0-SNAPSHOT/org.wso2.carbon.sequences.stub-4.3.0-20141212.202615-326-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.sequences.stub/4.3.0-SNAPSHOT/org.wso2.carbon.sequences.stub-4.3.0-20150111.215823-361-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.wso2.carbon:org.wso2.carbon.throttle.stub:4.3.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.throttle.stub/4.3.0-SNAPSHOT/org.wso2.carbon.throttle.stub-4.3.0-20141213.030535-1485.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.throttle.stub/4.3.0-SNAPSHOT/org.wso2.carbon.throttle.stub-4.3.0-20150111.212429-1523.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.throttle.stub/4.3.0-SNAPSHOT/org.wso2.carbon.throttle.stub-4.3.0-20141213.030535-1485-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.throttle.stub/4.3.0-SNAPSHOT/org.wso2.carbon.throttle.stub-4.3.0-20150111.212429-1523-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.throttle.stub/4.3.0-SNAPSHOT/org.wso2.carbon.throttle.stub-4.3.0-20141213.030535-1485-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.throttle.stub/4.3.0-SNAPSHOT/org.wso2.carbon.throttle.stub-4.3.0-20150111.212429-1523-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

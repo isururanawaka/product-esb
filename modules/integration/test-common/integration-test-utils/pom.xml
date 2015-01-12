@@ -64,6 +64,11 @@
              <artifactId>org.wso2.carbon.aarservices.stub</artifactId>
              <scope>compile</scope>
          </dependency>
+         <dependency>
+             <groupId>org.wso2.carbon</groupId>
+             <artifactId>org.wso2.carbon.mediation.library.stub</artifactId>
+             <scope>compile</scope>
+         </dependency>
 
      </dependencies>
 

@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.wso2.carbon:org.wso2.carbon.registry.activities.stub:4.3.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.activities.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.activities.stub-4.3.0-20141211.211906-385.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.activities.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.activities.stub-4.3.0-20150110.211258-414.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.activities.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.activities.stub-4.3.0-20141211.211906-385-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.activities.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.activities.stub-4.3.0-20150110.211258-414-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.activities.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.activities.stub-4.3.0-20141211.211906-385-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.activities.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.activities.stub-4.3.0-20150110.211258-414-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

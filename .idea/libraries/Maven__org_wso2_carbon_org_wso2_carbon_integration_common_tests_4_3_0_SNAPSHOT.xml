@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.wso2.carbon:org.wso2.carbon.integration.common.tests:4.3.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.integration.common.tests/4.3.0-SNAPSHOT/org.wso2.carbon.integration.common.tests-4.3.0-20141212.183534-368.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.integration.common.tests/4.3.0-SNAPSHOT/org.wso2.carbon.integration.common.tests-4.3.0-20150111.183457-404.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.integration.common.tests/4.3.0-SNAPSHOT/org.wso2.carbon.integration.common.tests-4.3.0-20141212.183534-368-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.integration.common.tests/4.3.0-SNAPSHOT/org.wso2.carbon.integration.common.tests-4.3.0-20150111.183457-404-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.integration.common.tests/4.3.0-SNAPSHOT/org.wso2.carbon.integration.common.tests-4.3.0-20141212.183534-368-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.integration.common.tests/4.3.0-SNAPSHOT/org.wso2.carbon.integration.common.tests-4.3.0-20150111.183457-404-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

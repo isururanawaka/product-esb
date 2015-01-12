@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.wso2.carbon:org.wso2.carbon.registry.search.stub:4.3.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.search.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.search.stub-4.3.0-20141211.212451-373.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.search.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.search.stub-4.3.0-20150110.211713-402.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.search.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.search.stub-4.3.0-20141211.212451-373-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.search.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.search.stub-4.3.0-20150110.211713-402-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.search.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.search.stub-4.3.0-20141211.212451-373-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.registry.search.stub/4.3.0-SNAPSHOT/org.wso2.carbon.registry.search.stub-4.3.0-20150110.211713-402-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
