@@ -50,6 +50,12 @@
         </packages>
     </test>
 
+    <test name="Mediator Dynamic Schema Test" preserve-order="true" verbose="2">
+        <packages>
+            <package name="org.wso2.carbon.esb.mediator.test.*"/>
+        </packages>
+    </test>
+
     <test name="EmptyStackExceptionTest" preserve-order="true"
           verbose="2">
         <classes>
