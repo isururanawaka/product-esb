@@ -79,7 +79,6 @@ public class TaskAdminClient {
 
     public void updateTask(OMElement omElement) throws RemoteException, TaskManagementException {
         taskAdminStub.editTaskDescription(omElement);
-
     }
 
     public OMElement getScheduleTask(String name, String group)

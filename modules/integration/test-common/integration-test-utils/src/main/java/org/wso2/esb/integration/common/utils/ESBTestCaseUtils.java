@@ -31,10 +31,14 @@ import org.testng.Assert;
 import org.wso2.carbon.endpoint.stub.types.EndpointAdminEndpointAdminException;
 import org.wso2.carbon.inbound.stub.types.carbon.InboundEndpointDTO;
 import org.wso2.carbon.localentry.stub.types.LocalEntryAdminException;
+import org.wso2.carbon.mediation.library.stub.MediationLibraryAdminServiceException;
+import org.wso2.carbon.mediation.library.stub.upload.types.carbon.LibraryFileItem;
 import org.wso2.carbon.proxyadmin.stub.ProxyServiceAdminProxyAdminException;
 import org.wso2.carbon.rest.api.stub.RestApiAdminAPIException;
 import org.wso2.carbon.sequences.stub.types.SequenceEditorException;
 import org.wso2.carbon.task.stub.TaskManagementException;
+import org.wso2.esb.integration.common.clients.connector.MediationLibraryAdminServiceClient;
+import org.wso2.esb.integration.common.clients.connector.MediationLibraryUploaderClient;
 import org.wso2.esb.integration.common.clients.endpoint.EndPointAdminClient;
 import org.wso2.esb.integration.common.clients.executor.PriorityMediationAdminClient;
 import org.wso2.esb.integration.common.clients.inbound.endpoint.InboundAdminClient;
@@ -400,11 +404,11 @@ public class ESBTestCaseUtils {
 
 
 		inboundAdmin.addInboundEndpoint(inboundEndpoint.getAttribute(new QName("name")).getAttributeValue(),
-		                                   inboundEndpoint.getAttribute(new QName("sequence")).getAttributeValue(),
-		                                   inboundEndpoint.getAttribute(new QName("onError")).getAttributeValue(),
-		                                   inboundEndpoint.getAttribute(new QName("protocol")).getAttributeValue(),
-		                                   null,
-		                                   mParams);
+		                                inboundEndpoint.getAttribute(new QName("sequence")).getAttributeValue(),
+		                                inboundEndpoint.getAttribute(new QName("onError")).getAttributeValue(),
+		                                inboundEndpoint.getAttribute(new QName("protocol")).getAttributeValue(),
+		                                null,
+		                                mParams);
 		isInboundEndpointDeployed(backEndUrl, sessionCookie, inboundEndpoint.getAttributeValue(new QName("name")));
 	}
 
@@ -446,9 +450,9 @@ public class ESBTestCaseUtils {
 	 */
 	private Map<String,String> generateParameterMap(OMElement element) {
 
-			Map<String,String> paramMap = new HashMap<String, String>();
-			OMElement params = element.getFirstChildWithName(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,
-			                                                           "parameters"));
+		Map<String,String> paramMap = new HashMap<String, String>();
+		OMElement params = element.getFirstChildWithName(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,
+		                                                           "parameters"));
 		if (params != null) {
 			Iterator<OMElement> iterator = params.getChildrenWithName(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE,"parameter"));
 			while (iterator.hasNext()) {
@@ -482,6 +486,66 @@ public class ESBTestCaseUtils {
 			throws Exception {
 		InboundAdminClient inboundAdmin = new InboundAdminClient(backEndUrl, sessionCookie);
 		return inboundAdmin.getAllInboundEndpointNames();
+	}
+
+	/**
+	 * Upload connector zip to file system
+	 * @param backEndUrl
+	 * @param sessionCookie
+	 * @param fileItems
+	 * @throws RemoteException
+	 */
+	public void uploadConnector(String backEndUrl, String sessionCookie, LibraryFileItem[] fileItems)
+			throws RemoteException {
+		MediationLibraryUploaderClient mediationLibraryUploaderClient = new MediationLibraryUploaderClient(
+				backEndUrl, sessionCookie);
+		mediationLibraryUploaderClient.uploadConnector(fileItems);
+
+	}
+
+	/**
+	 * Update connector status
+	 * @param backEndUrl
+	 * @param sessionCookie
+	 * @param libQName
+	 * @param libName
+	 * @param packageName
+	 * @param status
+	 * @throws RemoteException
+	 */
+	public void updateConnectorStatus(String backEndUrl, String sessionCookie, String libQName, String libName,
+	                                  String packageName, String status) throws RemoteException {
+		MediationLibraryAdminServiceClient mediationLibraryAdminServiceClient = new MediationLibraryAdminServiceClient(
+				backEndUrl, sessionCookie);
+		mediationLibraryAdminServiceClient.updateStatus(libQName,libName,packageName,status);
+	}
+
+	/**
+	 * Provide All Imports
+	 * @param backEndUrl
+	 * @param sessionCookie
+	 * @return
+	 * @throws RemoteException
+	 */
+	public String[] getAllImports(String backEndUrl, String sessionCookie) throws RemoteException {
+		MediationLibraryAdminServiceClient mediationLibraryAdminServiceClient = new MediationLibraryAdminServiceClient(
+				backEndUrl, sessionCookie);
+		return mediationLibraryAdminServiceClient.getAllImports();
+	}
+
+	/**
+	 * Delete connector from file system
+	 * @param backEndUrl
+	 * @param sessionCookie
+	 * @param liqQualifiedname
+	 * @throws RemoteException
+	 * @throws MediationLibraryAdminServiceException
+	 */
+	public void deleteLibrary(String backEndUrl, String sessionCookie, String liqQualifiedname)
+			throws RemoteException, MediationLibraryAdminServiceException {
+		MediationLibraryAdminServiceClient mediationLibraryAdminServiceClient = new MediationLibraryAdminServiceClient(
+				backEndUrl, sessionCookie);
+		mediationLibraryAdminServiceClient.deleteLibrary(liqQualifiedname);
 	}
 
 

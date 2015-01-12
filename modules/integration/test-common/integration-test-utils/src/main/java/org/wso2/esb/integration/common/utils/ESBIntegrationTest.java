@@ -33,6 +33,9 @@ import org.wso2.carbon.automation.engine.frameworkutils.FrameworkPathUtil;
 import org.wso2.carbon.inbound.stub.types.carbon.InboundEndpointDTO;
 import org.wso2.carbon.integration.common.admin.client.SecurityAdminServiceClient;
 import org.wso2.carbon.integration.common.utils.LoginLogoutClient;
+import org.wso2.carbon.mediation.library.stub.MediationLibraryAdminServiceException;
+import org.wso2.carbon.mediation.library.stub.upload.MediationLibraryUploaderStub;
+import org.wso2.carbon.mediation.library.stub.upload.types.carbon.LibraryFileItem;
 import org.wso2.carbon.security.mgt.stub.config.SecurityAdminServiceSecurityConfigExceptionException;
 import org.wso2.carbon.sequences.stub.types.SequenceEditorException;
 import org.wso2.esb.integration.common.clients.mediation.SynapseConfigAdminClient;
@@ -49,7 +52,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -237,14 +242,12 @@ public abstract class ESBIntegrationTest {
        /* if (ExecutionEnvironment.stratos.name().equalsIgnoreCase(getExecutionEnvironment())) {
             long deploymentDelay = FrameworkFactory.getFrameworkProperties(
                     ProductConstant.ESB_SERVER_NAME).getEnvironmentVariables().getDeploymentDelay();
-
             Assert.assertTrue(isProxyWSDlExist(getProxyServiceURL(proxyName), deploymentDelay)
                     , "Deployment Synchronizing failed in workers");
             Assert.assertTrue(isProxyWSDlExist(getProxyServiceURL(proxyName), deploymentDelay)
                     , "Deployment Synchronizing failed in workers");
             Assert.assertTrue(isProxyWSDlExist(getProxyServiceURL(proxyName), deploymentDelay)
                     , "Deployment Synchronizing failed in workers");
-
         }*/
 	}
 
@@ -292,8 +295,8 @@ public abstract class ESBIntegrationTest {
 	protected void deleteInboundEndpointFromName(String name) throws Exception {
 		try {
 
-					esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie,
-					                                       name);
+			esbUtils.deleteInboundEndpointDeployed(contextUrls.getBackEndUrl(), sessionCookie,
+			                                       name);
 		} catch (Exception e) {
 			throw new Exception("Error when deleting InboundEndpoint",e);
 		}
@@ -338,6 +341,27 @@ public abstract class ESBIntegrationTest {
 		}
 		sequencesList.add(sequenceName);
 	}
+
+	protected  void uploadConnector(String repoLocation, String strFileName) throws MalformedURLException,
+	                                                                                RemoteException {
+		List<LibraryFileItem> uploadLibraryInfoList = new ArrayList<LibraryFileItem>();
+		LibraryFileItem uploadedFileItem = new LibraryFileItem();
+		uploadedFileItem.setDataHandler(new DataHandler(new URL("file:" + File.separator +
+		                                                        File.separator + repoLocation +
+		                                                        File.separator + strFileName)));
+		uploadedFileItem.setFileName(strFileName);
+		uploadedFileItem.setFileType("zip");
+		uploadLibraryInfoList.add(uploadedFileItem);
+		LibraryFileItem[] uploadServiceTypes = new LibraryFileItem[uploadLibraryInfoList.size()];
+		uploadServiceTypes = uploadLibraryInfoList.toArray(uploadServiceTypes);
+		esbUtils.uploadConnector(contextUrls.getBackEndUrl(),sessionCookie,uploadServiceTypes);
+	}
+
+	protected void updateConnectorStatus(String libQName, String libName,
+	                                     String packageName, String status) throws RemoteException {
+		esbUtils.updateConnectorStatus(contextUrls.getBackEndUrl(),sessionCookie,libQName, libName, packageName, status);
+	}
+
 
 	protected void addEndpoint(OMElement endpointConfig)
 			throws Exception {
@@ -526,14 +550,12 @@ public abstract class ESBIntegrationTest {
                    /*     if (ExecutionEnvironment.stratos.name().equalsIgnoreCase(getExecutionEnvironment())) {
                             long deploymentDelay = FrameworkFactory.getFrameworkProperties(
                                     ProductConstant.ESB_SERVER_NAME).getEnvironmentVariables().getDeploymentDelay();
-
                             Assert.assertTrue(isProxyWSDlNotExist(getProxyServiceURL(proxyName), deploymentDelay)
                                     , "Proxy UnDeployment Synchronizing failed in workers");
                             Assert.assertTrue(isProxyWSDlNotExist(getProxyServiceURL(proxyName), deploymentDelay)
                                     , "Proxy UnDeployment Synchronizing failed in workers");
                             Assert.assertTrue(isProxyWSDlNotExist(getProxyServiceURL(proxyName), deploymentDelay)
                                     , "Proxy UnDeployment Synchronizing failed in workers");
-
                         }*/
 					}
 				} catch (Exception e) {
