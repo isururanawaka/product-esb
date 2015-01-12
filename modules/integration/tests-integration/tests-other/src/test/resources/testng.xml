@@ -43,7 +43,7 @@
         <classes>
             <class name="org.wso2.carbon.esb.test.servers.CarbonTestServerManager"/>
             <class name="org.wso2.carbon.esb.test.servers.NewInstanceTestCase"/>
-             <class name="org.wso2.carbon.esb.test.servers.OSGIUnsatisfiedServerBundlesTestCase"/>
+            <class name="org.wso2.carbon.esb.test.servers.OSGIUnsatisfiedServerBundlesTestCase"/>
         </classes>
     </test>
 
@@ -59,6 +59,10 @@
         </packages>
     </test>
 
+    <test name="Mediation-Stat-Test" preserve-order="true" verbose="2">
+        <packages>
+            <package name="org.wso2.carbon.esb.mediationstats.*"/>
+        </packages>
+    </test>
+
 </suite>
-
-

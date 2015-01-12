@@ -59,7 +59,7 @@ public class HttpInboundTransportTestCase extends ESBIntegrationTest {
 
     private OMElement getArtifactConfig(String fileName) throws Exception {
         String path = "artifacts" + File.separator + "ESB" + File.separator
-                + "http.inbound.transport" + File.separator + fileName;
+                + "jms" + File.separator + "inbound" + File.separator + "transport" + File.separator + fileName;
         try {
              return  esbUtils.loadResource(path);
         } catch (FileNotFoundException e) {

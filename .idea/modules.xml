@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/test-common/admin-clients/admin-clients.iml" filepath="$PROJECT_DIR$/modules/integration/test-common/admin-clients/admin-clients.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/features/product/esb-features.iml" filepath="$PROJECT_DIR$/modules/features/product/esb-features.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/features/esb-features-parent.iml" filepath="$PROJECT_DIR$/modules/features/esb-features-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/esb-integration-tests.iml" filepath="$PROJECT_DIR$/modules/integration/esb-integration-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esb-parent.iml" filepath="$PROJECT_DIR$/esb-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/samples/esb-samples-parent.iml" filepath="$PROJECT_DIR$/modules/samples/esb-samples-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/styles/esb-styles-parent.iml" filepath="$PROJECT_DIR$/modules/styles/esb-styles-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/test-common/extensions/extensions.iml" filepath="$PROJECT_DIR$/modules/integration/test-common/extensions/extensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/test-common/integration-test-common.iml" filepath="$PROJECT_DIR$/modules/integration/test-common/integration-test-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/test-common/integration-test-utils/integration-test-utils.iml" filepath="$PROJECT_DIR$/modules/integration/test-common/integration-test-utils/integration-test-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/reports/org.wso2.carbon.esb.integration.reports.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/reports/org.wso2.carbon.esb.integration.reports.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-mediator-1/org.wso2.carbon.esb.tests.mediator-1.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-mediator-1/org.wso2.carbon.esb.tests.mediator-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-mediator-2/org.wso2.carbon.esb.tests.mediator-2.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-mediator-2/org.wso2.carbon.esb.tests.mediator-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-other/org.wso2.carbon.esb.tests.other.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-other/org.wso2.carbon.esb.tests.other.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-patches/org.wso2.carbon.esb.tests.patches.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-patches/org.wso2.carbon.esb.tests.patches.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-sample/org.wso2.carbon.esb.tests.sample.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-sample/org.wso2.carbon.esb.tests.sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-service/org.wso2.carbon.esb.tests.service.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-service/org.wso2.carbon.esb.tests.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-transport/org.wso2.carbon.esb.tests.transport.iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-transport/org.wso2.carbon.esb.tests.transport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-integration/tests-transport/org.wso2.carbon.esb.tests.transport (1).iml" filepath="$PROJECT_DIR$/modules/integration/tests-integration/tests-transport/org.wso2.carbon.esb.tests.transport (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/tests-ui-integration/tests-ui/org.wso2.carbon.esb.tests.ui.iml" filepath="$PROJECT_DIR$/modules/integration/tests-ui-integration/tests-ui/org.wso2.carbon.esb.tests.ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/samples/product/org.wso2.esb.samples.iml" filepath="$PROJECT_DIR$/modules/samples/product/org.wso2.esb.samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/features/product/org.wso2.esb.samples.feature/org.wso2.esb.samples.feature.iml" filepath="$PROJECT_DIR$/modules/features/product/org.wso2.esb.samples.feature/org.wso2.esb.samples.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/styles/product/org.wso2.esb.styles.iml" filepath="$PROJECT_DIR$/modules/styles/product/org.wso2.esb.styles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/features/product/org.wso2.esb.styles.feature/org.wso2.esb.styles.feature.iml" filepath="$PROJECT_DIR$/modules/features/product/org.wso2.esb.styles.feature/org.wso2.esb.styles.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/service-samples/service-samples.iml" filepath="$PROJECT_DIR$/modules/integration/service-samples/service-samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/integration/test-common/ui-pages/ui-pages.iml" filepath="$PROJECT_DIR$/modules/integration/test-common/ui-pages/ui-pages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/distribution/wso2esb.iml" filepath="$PROJECT_DIR$/modules/distribution/wso2esb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modules/p2-profile/wso2esb-p2-profile.iml" filepath="$PROJECT_DIR$/modules/p2-profile/wso2esb-p2-profile.iml" />
+    </modules>
+  </component>
+</project>
+

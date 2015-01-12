@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.rampart:rampart-trust:1.6.1-wso2v13-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/rampart/rampart-trust/1.6.1-wso2v13-SNAPSHOT/rampart-trust-1.6.1-wso2v13-20150105.205223-895.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/rampart/rampart-trust/1.6.1-wso2v13-SNAPSHOT/rampart-trust-1.6.1-wso2v13-20150105.205223-895-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/rampart/rampart-trust/1.6.1-wso2v13-SNAPSHOT/rampart-trust-1.6.1-wso2v13-20150105.205223-895-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

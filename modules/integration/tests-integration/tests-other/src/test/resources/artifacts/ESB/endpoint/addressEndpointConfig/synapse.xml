@@ -3,7 +3,10 @@
     <registry provider="org.wso2.carbon.mediation.registry.WSO2Registry">
         <parameter name="cachableDuration">15000</parameter>
     </registry>
-    <proxy name="addressEndPoint" transports="http,https">
+    <proxy name="addressEndPoint" transports="http,https"
+           statistics="enable"
+           trace="disable"
+           startOnLoad="true">
         <target>
             <inSequence>
                 <send>
@@ -17,7 +20,9 @@
             </outSequence>
         </target>
     </proxy>
-    <proxy name="addressEndPoint_Config_Reg" transports="http,https">
+    <proxy name="addressEndPoint_Config_Reg" transports="http,https" statistics="enable"
+           trace="disable"
+           startOnLoad="true">
         <target>
             <inSequence>
                 <send>
@@ -29,7 +34,9 @@
             </outSequence>
         </target>
     </proxy>
-    <proxy name="invalidAddressEndPoint" transports="http,https">
+    <proxy name="invalidAddressEndPoint" transports="http,https" statistics="enable"
+           trace="disable"
+           startOnLoad="true">
         <target>
             <inSequence>
                 <send>

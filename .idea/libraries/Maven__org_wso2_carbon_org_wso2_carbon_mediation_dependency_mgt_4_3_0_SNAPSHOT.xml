@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2.carbon:org.wso2.carbon.mediation.dependency.mgt:4.3.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.mediation.dependency.mgt/4.3.0-SNAPSHOT/org.wso2.carbon.mediation.dependency.mgt-4.3.0-20150111.215109-379.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.mediation.dependency.mgt/4.3.0-SNAPSHOT/org.wso2.carbon.mediation.dependency.mgt-4.3.0-20150111.215109-379-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.mediation.dependency.mgt/4.3.0-SNAPSHOT/org.wso2.carbon.mediation.dependency.mgt-4.3.0-20150111.215109-379-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

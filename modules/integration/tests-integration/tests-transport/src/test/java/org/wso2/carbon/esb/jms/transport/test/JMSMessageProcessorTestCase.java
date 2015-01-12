@@ -76,4 +76,6 @@ public class JMSMessageProcessorTestCase extends ESBIntegrationTest {
     public void destroy() throws Exception {
         super.cleanup();
     }
+
+
 }
