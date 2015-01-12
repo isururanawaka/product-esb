@@ -19,76 +19,101 @@ package org.wso2.carbon.esb.generic.inbound.transport.test;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.wso2.carbon.automation.engine.context.AutomationContext;
-import org.wso2.carbon.automation.engine.context.TestUserMode;
+import org.wso2.carbon.integration.common.admin.client.LogViewerClient;
 import org.wso2.carbon.integration.common.utils.mgt.ServerConfigurationManager;
+import org.wso2.carbon.logging.view.stub.types.carbon.LogEvent;
+import org.wso2.esb.integration.common.clients.inbound.endpoint.InboundAdminClient;
 import org.wso2.esb.integration.common.utils.ESBIntegrationTest;
 import org.wso2.esb.integration.common.utils.JMSEndpointManager;
 
-import javax.xml.stream.XMLStreamException;
 import java.io.File;
-import java.io.FileNotFoundException;
 
 public class GenericInboundTransportTestCase extends ESBIntegrationTest {
-
+	private LogViewerClient logViewerClient = null;
 	private final String CLASS_JAR="org.wso2.carbon.inbound.endpoint.test-1.0-SNAPSHOT.jar";
 	private final String JAR_LOCATION= "/artifacts/ESB/jar";
-
+	private InboundAdminClient inboundAdminClient;
 	private ServerConfigurationManager serverConfigurationManager;
 
 	@BeforeClass(alwaysRun = true)
 	public void setEnvironment() throws Exception {
 
-		super.init();
-		serverConfigurationManager =
-				new ServerConfigurationManager(new AutomationContext("ESB", TestUserMode.SUPER_TENANT_ADMIN));
+		init();
+		serverConfigurationManager = new ServerConfigurationManager(context);
+		serverConfigurationManager.copyToComponentLib(new File(getClass().getResource(JAR_LOCATION + File.separator +
+		                                                                            CLASS_JAR)
+				                                                       .toURI()));
 		OMElement synapse =
 				esbUtils.loadResource("/artifacts/ESB/generic/inbound/transport/generic_inbound_transport_config.xml");
 		updateESBConfiguration(JMSEndpointManager.setConfigurations(synapse));
-		//serverConfigurationManager = new ServerConfigurationManager(context);
-		//serverConfigurationManager.copyToComponentLib(new File(getClass()
-		//		                                                       .getResource(JAR_LOCATION + File.separator +
-		//                                                                            CLASS_JAR)
-		//		                                                       .toURI()));
-		//serverConfigurationManager.restartGracefully();
-		//loadESBConfigurationFromClasspath
-		// ("/artifacts/ESB/generic/inbound/transport/generic_inbound_transport_config.xml");
+		serverConfigurationManager.restartGracefully();
+
+		init();
+		logViewerClient = new LogViewerClient(contextUrls.getBackEndUrl(), getSessionCookie());
 
 	}
 
-	@Test(groups = { "wso2.esb" }, description = "Test Generic Inbound End points")
-	public void testGenericInboundEndpoints() throws Exception {
+	@Test(groups = { "wso2.esb" }, description = "Test Adding Generic Inbound End point")
+	public void testAddingGenericInboundEndpoints() throws Exception {
+		int beforeLogCount = logViewerClient.getAllSystemLogs().length;
 		addInboundEndpoint(addEndpoint1());
+		LogEvent[] logs = logViewerClient.getAllSystemLogs();
+		boolean status = false;
+		for (int i = 0; i < (logs.length - beforeLogCount); i++) {
+			if (logs[i].getMessage().contains("Generic Polling Consumer Invoked")) {
+				status = true;
+				break;
+			}
+		}
+
+		Assert.assertTrue(status, "There is no Generic Inbound Endpoint.");
+
+		deleteInboundEndpoints();
 
 	}
+//	@Test(groups = { "wso2.esb" }, description = "Test Adding Generic Inbound End point")
+//	public void testGenericInboundEndpoints() throws Exception {
+//		addInboundEndpoint(addEndpoint1());
+//		updateInboundEndpoint(addEndpoint2());
+//		deleteInboundEndpoints();
+//
+//	}
 
 	@AfterClass(alwaysRun = true)
 	public void destroy() throws Exception {
 		super.cleanup();
-	}
+		serverConfigurationManager.removeFromComponentLib(CLASS_JAR);
+		serverConfigurationManager.restartGracefully();
 
-	private OMElement getArtifactConfig(String fileName) throws Exception {
-		String path = "artifacts" + File.separator + "ESB" + File.separator
-		              + "generic" + File.separator + "inbound" + File.separator
-		              + "transport" + File.separator
-		              + fileName;
-		try {
-			return esbUtils.loadResource(path);
-		} catch (FileNotFoundException e) {
-			throw new Exception("File Location " + path + " is incorrect ", e);
-		} catch (XMLStreamException e) {
-			throw new XMLStreamException("XML Stream Exception while reading file stream", e);
-		}
+		serverConfigurationManager=null;
 	}
 
 	private OMElement addEndpoint1() throws Exception {
 		OMElement synapseConfig = null;
 		synapseConfig = AXIOMUtil
 				.stringToOM("<inboundEndpoint xmlns=\"http://ws.apache.org/ns/synapse\"\n" +
-				            "                 name=\"Test\"\n" +
+				            "                 name=\"Test1\"\n" +
+				            "                 sequence=\"main\"\n" +
+				            "                 onError=\"inFault\"\n" +
+				            "                 class=\"org.wso2.carbon.inbound.endpoint.test.GenericConsumer\"\n" +
+				            "                 suspend=\"false\">\n" +
+				            "   <parameters>\n" +
+				            "      <parameter name=\"interval\">1000</parameter>\n" +
+				            "   </parameters>\n" +
+				            "</inboundEndpoint>");
+
+		return synapseConfig;
+	}
+
+	private OMElement addEndpoint2() throws Exception {
+		OMElement synapseConfig = null;
+		synapseConfig = AXIOMUtil
+				.stringToOM("<inboundEndpoint xmlns=\"http://ws.apache.org/ns/synapse\"\n" +
+				            "                 name=\"Test2\"\n" +
 				            "                 sequence=\"main\"\n" +
 				            "                 onError=\"inFault\"\n" +
 				            "                 class=\"org.wso2.carbon.inbound.endpoint.test.GenericConsumer\"\n" +
