@@ -198,7 +198,14 @@ public abstract class ESBIntegrationTest {
 		updateESBConfiguration(synapseConfig);
 
 	}
+    protected void deleteLibrary(String fullQualifiedName)
+            throws MediationLibraryAdminServiceException, RemoteException {
+        esbUtils.deleteLibrary(contextUrls.getBackEndUrl(),sessionCookie,fullQualifiedName);
+    }
 
+    protected  String[]  getAllImports() throws RemoteException {
+        return esbUtils.getAllImports(contextUrls.getBackEndUrl(),sessionCookie);
+    }
 	protected void updateESBConfiguration(OMElement synapseConfig) throws Exception {
 
 		if (synapseConfiguration == null) {

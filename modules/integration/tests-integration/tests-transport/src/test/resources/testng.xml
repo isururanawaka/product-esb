@@ -15,6 +15,7 @@
         </packages>
     </test>
 
+
     <test name="Servlet-transport-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.servlet.transport.test.*"/>
@@ -45,6 +46,8 @@
         </classes>
     </test>
 
+
+
     <!--    <test name="TCP-transport-Test" preserve-order="true" verbose="2">
             <packages>
                 <package name="org.wso2.carbon.esb.tcp.transport.test.*"/>
@@ -58,16 +61,19 @@
             </packages>
         </test>-->
 
+
+
+
     <test name="passthru-Transport-Test" preserve-order="true" verbose="2">
         <packages>
             <package name="org.wso2.carbon.esb.passthru.transport.test"/>
         </packages>
     </test>
-    <!--    <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">
+        <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">
             <packages>
                 <package name="org.wso2.carbon.esb.http.inbound.transport.test"/>
             </packages>
-        </test> -->
+        </test>
 
     <test name="JMS Inbound Test" preserve-order="true" verbose="2">
         <packages>
@@ -81,11 +87,16 @@
         </packages>
     </test>
 
+
+
+
     <!--<test name="File Inbound Test" preserve-order="true" verbose="2">-->
     <!--<classes>-->
     <!--<class name="org.wso2.carbon.esb.file.inbound.transport.test.FtpInboundTransportTest"/>-->
     <!--</classes>-->
     <!--</test>-->
+
+
     <test name="Generic Inbound Test" preserve-order="true" verbose="2">
         <classes>
             <class name="org.wso2.carbon.esb.generic.inbound.transport.test.GenericInboundTransportTestCase"/>
