@@ -9,41 +9,41 @@
         <listener class-name="org.wso2.carbon.automation.engine.testlisteners.TestTransformerListener"/>
     </listeners>
 
-    <test name="nhttp-Transport-Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.nhttp.transport.test.*"/>
-        </packages>
-    </test>
+    <!--<test name="nhttp-Transport-Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.nhttp.transport.test.*"/>-->
+        <!--</packages>-->
+    <!--</test>-->
 
-    <test name="Servlet-transport-Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.servlet.transport.test.*"/>
-        </packages>
-    </test>
+    <!--<test name="Servlet-transport-Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.servlet.transport.test.*"/>-->
+        <!--</packages>-->
+    <!--</test>-->
 
-    <test name="VFS-transport-Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.vfs.transport.test.*"/>
-        </packages>
-    </test>
+    <!--<test name="VFS-transport-Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.vfs.transport.test.*"/>-->
+        <!--</packages>-->
+    <!--</test>-->
 
-    <test name="JMS-transport-Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.jms.transport.test.*"/>
-        </packages>
-        <classes>
-            <class name="org.wso2.carbon.esb.jms.transport.test.JMSOutOnlyTestCase">
-                <methods>
-                    <exclude name=".*" />
-                </methods>
-            </class>
-            <class name="org.wso2.carbon.esb.jms.transport.test.ESBJAVA2824MissingResponseTestCase">
-                <methods>
-                    <exclude name=".*" />
-                </methods>
-            </class>
-        </classes>
-    </test>
+    <!--<test name="JMS-transport-Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.jms.transport.test.*"/>-->
+        <!--</packages>-->
+        <!--<classes>-->
+            <!--<class name="org.wso2.carbon.esb.jms.transport.test.JMSOutOnlyTestCase">-->
+                <!--<methods>-->
+                    <!--<exclude name=".*" />-->
+                <!--</methods>-->
+            <!--</class>-->
+            <!--<class name="org.wso2.carbon.esb.jms.transport.test.ESBJAVA2824MissingResponseTestCase">-->
+                <!--<methods>-->
+                    <!--<exclude name=".*" />-->
+                <!--</methods>-->
+            <!--</class>-->
+        <!--</classes>-->
+    <!--</test>-->
 
     <!--    <test name="TCP-transport-Test" preserve-order="true" verbose="2">
             <packages>
@@ -58,28 +58,28 @@
             </packages>
         </test>-->
 
-    <test name="passthru-Transport-Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.passthru.transport.test"/>
-        </packages>
-    </test>
-    <!--    <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">
-            <packages>
-                <package name="org.wso2.carbon.esb.http.inbound.transport.test"/>
-            </packages>
-        </test> -->
+    <!--<test name="passthru-Transport-Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.passthru.transport.test"/>-->
+        <!--</packages>-->
+    <!--</test>-->
+    <!--&lt;!&ndash;    <test name="inbound-Http Endpoint-Test" preserve-order="true" verbose="2">-->
+            <!--<packages>-->
+                <!--<package name="org.wso2.carbon.esb.http.inbound.transport.test"/>-->
+            <!--</packages>-->
+        <!--</test> &ndash;&gt;-->
 
-    <test name="JMS Inbound Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.jms.inbound.transport.test.*"/>
-        </packages>
-    </test>
+    <!--<test name="JMS Inbound Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.jms.inbound.transport.test.*"/>-->
+        <!--</packages>-->
+    <!--</test>-->
 
-    <test name="File Inbound Test" preserve-order="true" verbose="2">
-        <packages>
-            <package name="org.wso2.carbon.esb.file.inbound.transport.test.*"/>
-        </packages>
-    </test>
+    <!--<test name="File Inbound Test" preserve-order="true" verbose="2">-->
+        <!--<packages>-->
+            <!--<package name="org.wso2.carbon.esb.file.inbound.transport.test.*"/>-->
+        <!--</packages>-->
+    <!--</test>-->
 
     <!--<test name="File Inbound Test" preserve-order="true" verbose="2">-->
     <!--<classes>-->
